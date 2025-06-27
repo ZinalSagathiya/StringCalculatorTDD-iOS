@@ -10,8 +10,8 @@ import Foundation
 class StringCalculator {
    
     func add(_ numbers: String) -> Int {
-        if numbers.isEmpty { return 0 }
-        return Int(numbers) ?? 0
+        let parts = numbers.split(separator: ",").map { Int($0) ?? 0 }
+        return parts.reduce(0, +)
     }
 }
 

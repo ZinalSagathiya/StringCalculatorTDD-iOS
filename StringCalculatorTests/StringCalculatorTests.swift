@@ -24,4 +24,8 @@ final class StringCalculatorTests: XCTestCase {
        func testSingleNumberReturnsValue() {
            XCTAssertEqual(calculator.add("5"), 5)
        }
+    
+       func testTwoNumbersReturnsSum() {
+           XCTAssertEqual(calculator.add("1,2"), 3)
+    }
 }
