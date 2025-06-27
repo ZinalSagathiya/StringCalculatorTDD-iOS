@@ -38,8 +38,12 @@ class StringCalculator {
             }
             input = parts.dropFirst().joined(separator: "\n")
         }
+        input = input.replacingOccurrences(of: "\\n", with: "\n")
 
-        let values = input.components(separatedBy: delimiters).compactMap { Int($0) }
+        let values = input.components(separatedBy: delimiters)
+            .filter { !$0.isEmpty }
+            .compactMap { Int($0) }
+        
         let negatives = values.filter { $0 < 0 }
         if !negatives.isEmpty {
             throw StringCalculatorError.negativesNotAllowed(negatives)

@@ -30,7 +30,7 @@ final class StringCalculatorTests: XCTestCase {
        }
            
        func testNewlineAsSeparator() {
-           XCTAssertEqual(calculator.add("1\n2,3"), 6)
+           XCTAssertEqual(calculator.add("1,2\n,4,5"), 12)
         }
     
        func testCustomDelimiter() {
@@ -47,6 +47,6 @@ final class StringCalculatorTests: XCTestCase {
             XCTAssertThrowsError(try calculator.addWithError("-1,-2,3")) { error in
             XCTAssertEqual(error.localizedDescription, "negative numbers not allowed: -1,-2")
           }
-        }
+       }
 
 }
