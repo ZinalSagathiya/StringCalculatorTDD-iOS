@@ -10,7 +10,9 @@ import Foundation
 class StringCalculator {
    
     func add(_ numbers: String) -> Int {
-        let parts = numbers.split(separator: ",").map { Int($0) ?? 0 }
+        if numbers.isEmpty { return 0 }
+        let delimiters = CharacterSet(charactersIn: ",\n")
+        let parts = numbers.components(separatedBy: delimiters).map { Int($0) ?? 0 }
         return parts.reduce(0, +)
     }
 }
